@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معلمة قرآن - دول الخليج</title>
+  <style>
+    body { font-family: 'Tahoma', sans-serif; margin: 0; background: #f9f9f9; color: #333; }
+    header, footer { background-color: #2d7c6f; color: white; text-align: center; padding: 1em; }
+    nav a { margin: 0 15px; color: white; text-decoration: none; }
+    .container { padding: 2em; max-width: 900px; margin: auto; }
+    .section { margin-bottom: 2em; }
+    .cta-button { background-color: #2d7c6f; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+    .testimonials { background-color: #e6f1ef; padding: 1em; border-radius: 8px; }
+    .feedback-box {
+      display: none;
+      background-color: #fff;
+      padding: 1em;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      margin-top: 1em;
+    }
+    textarea, input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      margin-top: 10px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #2d7c6f;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>تعلمي القرآن الكريم أونلاين</h1>
+    <nav>
+      <a href="#about">من أنا</a>
+      <a href="#services">الخدمات</a>
+      <a href="#contact">التواصل</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <section class="section" id="about">
+      <h2>من أنا</h2>
+      <p>أنا معلمة متخصصة في تعليم وتحفيظ القرآن الكريم، حاصلة على إجازة في رواية حفص عن عاصم، أُقدم دروسي للنساء والأطفال في دول الخليج عبر الإنترنت بخبرة تتجاوز 3 سنوات.</p>
+    </section>
+
+    <section class="section" id="services">
+      <h2>الخدمات</h2>
+      <ul>
+        <li>تحفيظ القرآن الكريم بجودة عالية</li>
+        <li>شرح قواعد التجويد نظريًا وعمليًا</li>
+        <li>جلسات فردية وجماعية عبر Zoom</li>
+        <li>اختبارات دورية ومتابعة مستمرة</li>
+      </ul>
+    </section>
+
+    <section class="section testimonials">
+      <h2>آراء الطالبات</h2>
+      <p>"أسلوب المعلمة ممتاز، بنتي أصبحت تحب القرآن أكثر." - أم نورة (الإمارات)</p>
+      <p>"استفدت كثيرًا من دورة التجويد، جزاكِ الله خيرًا." - نورة (السعودية)</p>
+
+      <!-- آراء الطلاب -->
+      <div id="student-feedback" class="feedback-box">
+        <h3>رأيك كطالب يهمنا</h3>
+        <input type="text" id="studentName" placeholder="اكتب اسمك">
+        <input type="text" id="studentCountry" placeholder="اكتب الدولة">
+        <textarea id="studentMessage" placeholder="اكتب رأيك هنا..."></textarea>
+        <button onclick="sendFeedback('student')">إرسال عبر واتساب</button>
+      </div>
+
+      <!-- آراء غير الطلاب -->
+      <div id="nonstudent-feedback" class="feedback-box">
+        <h3>ملاحظاتك تهمنا</h3>
+        <input type="text" id="nonStudentName" placeholder="اكتب اسمك">
+        <input type="text" id="nonStudentCountry" placeholder="اكتب الدولة">
+        <textarea id="nonStudentMessage" placeholder="اكتب ملاحظتك هنا..."></textarea>
+        <button onclick="sendFeedback('nonstudent')">إرسال عبر واتساب</button>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <h2>التواصل والحجز</h2>
+      <p>راسليني مباشرة عبر واتساب:</p>
+      <p><a class="cta-button" href="https://wa.me/201025146333">اضغطي هنا للتواصل على واتساب</a></p>
+      <p>أو عبر البريد الإلكتروني: <strong>doaatawfikmahmoud@gmail.com</strong></p>
+      <p>أو عبر الفيس بوك: <strong>دعاءتوفيق</strong></p>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2025 جميع الحقوق محفوظة لمعلمة القرآن</p>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    window.onload = function () {
+      let isStudent = confirm("هل أنت طالب؟");
+      if (isStudent) {
+        document.getElementById("student-feedback").style.display = "block";
+      } else {
+        document.getElementById("nonstudent-feedback").style.display = "block";
+      }
+    };
+
+    function sendFeedback(type) {
+      let name = "", country = "", message = "";
+
+      if (type === "student") {
+        name = document.getElementById("studentName").value.trim();
+        country = document.getElementById("studentCountry").value.trim();
+        message = document.getElementById("studentMessage").value.trim();
+      } else {
+        name = document.getElementById("nonStudentName").value.trim();
+        country = document.getElementById("nonStudentCountry").value.trim();
+        message = document.getElementById("nonStudentMessage").value.trim();
+      }
+
+      if (!name || !country || !message) {
+        alert("يرجى كتابة الاسم والدولة والرسالة قبل الإرسال.");
+        return;
+      }
+
+      let label = type === "student" ? "رأي الطالب" : "رأي الزائر";
+      let fullMessage = `${label}:\nالاسم: ${name}\nالدولة: ${country}\nالرسالة: ${message}`;
+      let encodedMessage = encodeURIComponent(fullMessage);
+      let phoneNumber = "201025146333";
+      let whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+      window.open(whatsappURL, '_blank');
+    }
+  </script>
+</body>
+</html>
